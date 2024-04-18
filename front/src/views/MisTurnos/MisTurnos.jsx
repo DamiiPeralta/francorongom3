@@ -34,7 +34,7 @@ const MisTurnos = () => {
     <div className={styles.container}>
       <h1 className={styles.title}>Mis Turnos</h1>
       <h3 className={styles.title}>Estos son los turnos del usuario</h3>
-      <p className={styles.title}>Solo se pueden sacar turnos de 10:00 AM a 15:00 PM, y de Lunes a Viernes</p>
+      <p className={styles.title}>Solo se pueden sacar turnos de 08:00 AM a 16:00 PM, y de Lunes a Viernes</p>
       {turnos.length === 0 ? (
         <p>Aún no hay turnos agendados para este usuario.</p>
       ) : (

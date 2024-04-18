@@ -1,7 +1,7 @@
 const texts = [
-    "En este sitio podras agendar un turno para Horizon Bank de Argentina",
+    "En este sitio podras agendar un turno para Clinica Vitalidad de Argentina",
 
-    "Gestina tus visitas en Horizon Bank",
+    "Gestina tus visitas en Clinica Vitalidad",
 
     "Reserva tu turno con antelacion.",
 
