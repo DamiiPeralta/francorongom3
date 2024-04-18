@@ -1,29 +1,24 @@
-/* About.module.css */
-.container {
-    padding: 20px;
-    background-color: #f0f0f0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-bottom: 20px;
+.Conteiner {
+    background-image: url('/Fondo-About.jpg');
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    padding: 50px; 
+    opacity: 0.8;
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    height: 100vh; 
 }
 
-header {
-    margin-bottom: 20px;
+.Tarjeta {
+    background-color: rgba(255, 255, 255, 0.8); 
+    padding: 30px; 
+    border-radius: 10px; 
+    max-width: 800px; 
 }
 
-section {
-    margin-bottom: 20px;
-}
-
-h1, h2 {
-    color: #333;
-}
-
-ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-li {
-    margin-bottom: 5px;
+.Parrafos {
+    color: rgb(0, 0, 0);
+    font-size: 24px; 
+    text-align: center; 
 }

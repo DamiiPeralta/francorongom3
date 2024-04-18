@@ -50,7 +50,7 @@ const CreateTurn = () => {
     // Verificar el horario seleccionado
     const selectedTime = new Date(`2000-01-01T${time}`);
     const hour = selectedTime.getHours();
-    if (hour < 8 || hour >= 16) {
+    if (hour < 10 || hour >= 15) {
       setErrorMessage('Los turnos solo pueden ser programados entre las 08:00 y las 16:00 horas');
       return;
     }
