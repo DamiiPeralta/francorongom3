@@ -10,7 +10,7 @@ const Home = () => {
     return (
         <>
         <div>
-            <h3>Bienvenido al Gestor de Turnos</h3>
+            <h3>Bienvenido al Gestor de Turnos de Clinica Vitalidad</h3>
             {
                 textToShow.map((text) => {
                     return <ImgText text = {text}/>

@@ -29,18 +29,35 @@ const CreateTurn = () => {
     }
 
     // Obtener el día de la semana de la fecha seleccionada
+    const currentDate = new Date();
     const selectedDate = new Date(date);
     const dayOfWeek = selectedDate.getDay(); // 0 (Domingo) a 6 (Sábado)
+    console.log(dayOfWeek)
 
-    // Verificar si el día seleccionado es un día laborable (de lunes a viernes)
-    if (dayOfWeek === 0 || dayOfWeek === 6) {
-      setErrorMessage('No se pueden sacar turnos los fines de semana (Sábado y Domingo)');
+    // Verificar si el día seleccionado no es sábado (día 6)
+    if (dayOfWeek === 6) {
+      setErrorMessage('No se pueden sacar turnos los sábados');
+      return;
+    }
+    if (dayOfWeek === 7) {
+      setErrorMessage('No se pueden sacar turnos los domingos');
+      return;
+    }
+    if (selectedDate < currentDate) {
+      setErrorMessage('No se pueden sacar turnos para fechas pasadas');
+      return;
+    }
+    // Verificar el horario seleccionado
+    const selectedTime = new Date(`2000-01-01T${time}`);
+    const hour = selectedTime.getHours();
+    if (hour < 8 || hour >= 16) {
+      setErrorMessage('Los turnos solo pueden ser programados entre las 08:00 y las 16:00 horas');
       return;
     }
 
     try {
       const response = await axios.post('http://localhost:8080/turns/schedule', {
-        loggedUserId,
+        userId: loggedUserId,
         date,
         time
       });

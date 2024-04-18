@@ -6,6 +6,14 @@ import { useNavigate } from "react-router-dom";
 const Turno = ({ turns: { id, date, time, status } }) => {
   const [estado, setEstado] = useState(status);
   const navigate = useNavigate();
+
+  // Función para formatear la fecha
+  const formatDate = (fechaString) => {
+    const fecha = new Date(fechaString);
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    return fecha.toLocaleDateString('es-ES', options);
+  };
+
   const cancelTurn = async (id) => {
     await axios.put(`http://localhost:8080/turns/cancel/${id}`);
     setEstado("cancelled");
@@ -21,7 +29,8 @@ const Turno = ({ turns: { id, date, time, status } }) => {
   return (
     <div className={styles.card}>
       <div className={styles.info}>
-        <h4>Fecha: {date}</h4>
+        {/* Aquí llamamos a la función formatDate para formatear la fecha */}
+        <h4>Fecha: {formatDate(date)}</h4>
         <h4>Hora: {time}</h4>
       </div>
       <div className={estado === 'active' ? styles.active : styles.canceled}>
@@ -32,7 +41,6 @@ const Turno = ({ turns: { id, date, time, status } }) => {
       )}
     </div>
   );
-
 };
 
 export default Turno;
